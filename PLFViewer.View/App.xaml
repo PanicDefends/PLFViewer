@@ -1,0 +1,10 @@
+﻿<Application x:Class="PLFViewer.View.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:PLFViewer.View"
+             xmlns:views="clr-namespace:PLFViewer.View.Views"
+             StartupUri="views/MainView.xaml">
+    <Application.Resources>
+         
+    </Application.Resources>
+</Application>
