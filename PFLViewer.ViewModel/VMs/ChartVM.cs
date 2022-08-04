@@ -30,9 +30,7 @@ namespace PLFViewer.ViewModel.VMs
         {
             new Axis()
             {
-                Name = "X",
-                SeparatorsPaint = new SolidColorPaint(new SkiaSharp.SKColor(15,80,180)),
-                LabelsPaint = new SolidColorPaint(new SkiaSharp.SKColor(15,80,180)),
+                Name = "X"
             }
         };
 

@@ -65,7 +65,7 @@ namespace PLFViewer.ViewModel.VMs
             get => _displayString;
             set
             {
-                _displayString = string.Format("#{0} [{1}", this.GetHashCode(), value);
+                _displayString = value;
                 OnPropertyChanged();
             }
         }

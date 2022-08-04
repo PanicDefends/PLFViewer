@@ -77,7 +77,6 @@
     <Compile Include="Impl\Interfaces\IMessageDialogService.cs" />
     <Compile Include="Impl\Interfaces\ISerializationService.cs" />
     <Compile Include="Impl\Interfaces\INotifyPropertyValueChanged.cs" />
-    <Compile Include="Impl\Interfaces\MessageDialogServiceBuilder.cs" />
     <Compile Include="Impl\JsonSerializationService.cs" />
     <Compile Include="Impl\MessageDialogFactory.cs" />
     <Compile Include="Impl\ObservableValuesObject.cs" />
@@ -93,9 +92,7 @@
       <DependentUpon>ResourcesEN.resx</DependentUpon>
     </Compile>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Utils\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <EmbeddedResource Include="Resources\ResourcesEN.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>

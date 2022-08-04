@@ -8,7 +8,7 @@ using Microsoft.Win32;
 
 namespace PLFViewer.Common.Impl
 {
-    public class Win32FileDialogService : IFileDialogService
+    internal class Win32FileDialogService : IFileDialogService
     {
         protected FileDialog _fileDialog;
         public Win32FileDialogService(FileDialog fileDialog)

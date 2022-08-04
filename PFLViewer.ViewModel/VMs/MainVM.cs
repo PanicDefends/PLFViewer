@@ -105,28 +105,26 @@ namespace PLFViewer.ViewModel.VMs
             (_addInversedFunctionCommand = new RelayCommand(() =>
             {
                 AddInversedFunction(CurrentFunction);
-            },
-                () =>
-                {
-                    return CurrentFunction != null;
-                }));
+            }, () =>
+            {
+                return CurrentFunction != null;
+            }));
 
         protected void AddInversedFunction(PLFunctionVM function)
         {
-            var newFunctionVM = new PLFunctionVM(PLFunctionModel.GetInversed(function.Function));
-            _functions.Add(newFunctionVM);
-            _chartVM.Series.Add(newFunctionVM.Series);
+            var inversedFunctionVM = new PLFunctionVM(PLFunctionModel.GetInversed(function.Function));
+            _functions.Add(inversedFunctionVM);
+            _chartVM.Series.Add(inversedFunctionVM.Series);
         }
 
         public RelayCommand RemoveFunctionCommand => _removeFunctionCommand ??
             (_removeFunctionCommand = new RelayCommand(() =>
             {
                 RemoveFunction(CurrentFunction);
-            },
-                () =>
-                {
-                    return CurrentFunction != null;
-                }));
+            }, () =>
+            {
+                return CurrentFunction != null;
+            }));
 
         protected void RemoveFunction(PLFunctionVM function)
         {
@@ -162,7 +160,7 @@ namespace PLFViewer.ViewModel.VMs
 
 
         public void RequestWindowClosing() => WindowClosingRequested?.Invoke(this, EventArgs.Empty);
-        public bool DoOnClosing()
+        public bool ApproveClosing()
         {
             var dialogService = MessageDialogFactory.GetMessageDialog(
                 "Unsaved changes", "Do you want to save changes?", DialogButtonSet.YesNoCancel);
@@ -176,9 +174,7 @@ namespace PLFViewer.ViewModel.VMs
                 return true;
             }
             else
-            {
                 return true;
-            }
         }
     }
 }

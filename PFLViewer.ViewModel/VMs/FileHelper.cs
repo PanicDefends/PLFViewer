@@ -9,7 +9,7 @@ namespace PLFViewer.ViewModel.VMs
         public const string APP_NAME = "PLFViewer";
         public readonly string FUNC_DB_DEFAULT_DIR;
         public const string EXTENSION = "fjson";
-        public const string FILTER = "Function json files (*.fjson)|*.fjson|All files(*.*)|*.*";
+        public readonly string FILTER = $"Function json files (*.{EXTENSION})|*.{EXTENSION}|All files(*.*)|*.*";
 
         public FileHelper()
         {

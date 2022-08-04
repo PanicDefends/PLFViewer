@@ -77,7 +77,6 @@
     <Compile Include="Model\PointModel.cs" />
     <Compile Include="Model\PLFunctionModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="MathUtils.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
