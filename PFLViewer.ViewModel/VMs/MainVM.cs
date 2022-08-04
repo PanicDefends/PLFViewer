@@ -35,8 +35,15 @@ namespace PLFViewer.ViewModel.VMs
         public MainVM(ISerializationService serializationService)
         {
             _serializationHelper = new SerializationHelper(_functions, serializationService);
+            _serializationHelper.PropertyChanged += OnHasUnsavedChangesChanged;
             _functions.CollectionChanged += OnFunctionCollectionChanged;
-            OnClosing = DoOnClosing;
+            OnClosing = ApproveClosing;
+        }
+
+        private void OnHasUnsavedChangesChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
+        {
+            if (e.PropertyName.Equals(nameof(_serializationHelper.HasUnsavedChanges)))
+                _saveToFileCommand.NotifyCanExecuteChanged();
         }
 
         private void OnFunctionCollectionChanged(object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
@@ -151,7 +158,7 @@ namespace PLFViewer.ViewModel.VMs
             (_saveToFileCommand = new RelayCommand(() =>
             {
                 _serializationHelper.SaveToFile();
-            }));
+            }, () => _serializationHelper.HasUnsavedChanges));
 
 
         public void RequestWindowClosing() => WindowClosingRequested?.Invoke(this, EventArgs.Empty);

@@ -1,4 +1,5 @@
-﻿using Microsoft.Toolkit.Mvvm.Input;
+﻿using Microsoft.Toolkit.Mvvm.ComponentModel;
+using Microsoft.Toolkit.Mvvm.Input;
 using PFLViewer.Model.Model;
 using PLFViewer.Common.Impl;
 using PLFViewer.Common.Impl.Interfaces;
@@ -9,10 +10,11 @@ using System.Linq;
 
 namespace PLFViewer.ViewModel.VMs
 {
-    public class SerializationHelper
+    public class SerializationHelper : ObservableObject
     {
+        protected bool _hasUnsavedChanges;
         protected ISerializationService _serializationService;
-        private ObservableCollection<PLFunctionVM> _functions;
+        protected ObservableCollection<PLFunctionVM> _functions;
 
 
         public SerializationHelper(ObservableCollection<PLFunctionVM> functions, ISerializationService serializationService)
@@ -23,7 +25,15 @@ namespace PLFViewer.ViewModel.VMs
 
 
         public FileHelper FileHelper { get; } = new FileHelper();
-        public bool HasUnsavedChanges { get; set; }
+        public bool HasUnsavedChanges
+        {
+            get => _hasUnsavedChanges;
+            set
+            {
+                _hasUnsavedChanges = value;
+                OnPropertyChanged();
+            }
+        }
 
 
         public IEnumerable<PLFunctionModel> LoadFromFile()
