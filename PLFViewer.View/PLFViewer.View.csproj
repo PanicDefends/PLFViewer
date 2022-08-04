@@ -110,6 +110,10 @@
     <Folder Include="WpfResources\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\MathCore\MathCore.csproj">
+      <Project>{96e64d85-5457-4881-ab10-d19829cc0d83}</Project>
+      <Name>MathCore</Name>
+    </ProjectReference>
     <ProjectReference Include="..\PFLViewer.Common\PLFViewer.Common.csproj">
       <Project>{da9637da-97e6-4ccb-9565-98ff8f1656c7}</Project>
       <Name>PLFViewer.Common</Name>

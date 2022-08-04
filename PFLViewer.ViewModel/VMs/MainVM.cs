@@ -137,12 +137,18 @@ namespace PLFViewer.ViewModel.VMs
             (_loadFromFileCommand = new RelayCommand(() =>
             {
                 var data = _serializationHelper.LoadFromFile();
+                if (data == null)
+                    return;
+
                 Reinitialize(data);
             }));
 
 
         private void Reinitialize(IEnumerable<PLFunctionModel> data)
         {
+            if (data == null)
+                throw new ArgumentNullException(nameof(data));
+
             _functions.Clear();
             data.Select(f => new PLFunctionVM(f))
                 .ToList()

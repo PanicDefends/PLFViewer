@@ -37,9 +37,12 @@
                             DataContext="{Binding ChartVM}"
                             XAxes="{Binding XAxes}"
                             YAxes="{Binding YAxes}"
-                      Grid.Row="0"
-                      Grid.RowSpan="3"
-                      Series="{Binding Series}"/>
+                            Grid.Row="0"
+                            Grid.RowSpan="3"
+                            Series="{Binding Series}"
+                            MouseDown="Chart_MouseDown"
+                            MouseUp="Chart_MouseUp"
+                            MouseDoubleClick="Chart_MouseDoubleClick"/>
 
         
         <Grid Grid.Column="1">
